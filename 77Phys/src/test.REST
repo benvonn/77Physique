@@ -1,0 +1,43 @@
+###
+# curl 'https://localhost:8000/submitBlog' \
+#   -H 'Accept: */*' \
+#   -H 'Accept-Language: en-US,en;q=0.9' \
+#   -H 'Connection: keep-alive' \
+#   -H 'Content-Type: application/json' \
+#   -H 'Origin: http://localhost:3000' \
+#   -H 'Referer: http://localhost:3000/' \
+#   -H 'Sec-Fetch-Dest: empty' \
+#   -H 'Sec-Fetch-Mode: cors' \
+#   -H 'Sec-Fetch-Site: cross-site' \
+#   -H 'Sec-Fetch-Storage-Access: active' \
+#   -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36' \
+#   -H 'sec-ch-ua: "Chromium";v="134", "Not:A-Brand";v="24", "Google Chrome";v="134"' \
+#   -H 'sec-ch-ua-mobile: ?0' \
+#   -H 'sec-ch-ua-platform: "Windows"' \
+#   --data-raw '' \
+#   --insecure
+###
+
+POST https://127.0.0.1:8000/submitBlog
+content-type:application/json
+credentials: include
+
+{"title":"test","date":"2025-03-24","blogBody":"test"}
+
+
+###
+POST https://localhost:8000/signup
+Content-Type: application/json
+
+{"username": "test", "email": "123@gmail.com", "password": "1"}
+
+###
+POST https://localhost:8000/login
+Content-Type: application/json
+
+
+{"username": "test",  "password": "1"}
+
+###
+GET https://localhost:8000/user/<username>
+
