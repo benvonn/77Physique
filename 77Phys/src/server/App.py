@@ -13,7 +13,7 @@ import os
 
 app = Flask(__name__)
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://benjman:0624@localhost/77physique"
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('SQLALCHEMY_DATABASE_URI')  or "postgresql://benjman:0624@localhost/77physique"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["JWT_SECRET_KEY"] = '0624'
 
