@@ -14,7 +14,7 @@ function Navigation() {
 
     const fetchWorkouts = async () => {
         try {
-            const res = await fetch(`${API_BASE_URL}/workouts`, {
+            const res = await fetch(`https://seven7physbe.onrender.com/workouts`, {
                 credentials: "include",
             });
             if (!res.ok) throw new Error("Failed to fetch workouts");
@@ -60,7 +60,7 @@ function Navigation() {
 
     const handleLogout = async () => {
         try {
-            await fetch(`${API_BASE_URL}/logout`, {
+            await fetch(`https://seven7physbe.onrender.com/logout`, {
                 method: "POST",
                 credentials: "include",
             });

@@ -20,7 +20,7 @@ function Blog({closePopup, onNewPost}){
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
-            const res = await fetch(`${API_BASE_URL}/submitBlog`, {
+            const res = await fetch(`https://seven7physbe.onrender.com/submitBlog`, {
                 //mode: 'no-cors',
                 method: "POST",
                 credentials: "include",
@@ -111,14 +111,14 @@ function BlogList(){
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const blogRes = await fetch(`${API_BASE_URL}/blogs`, {
+                const blogRes = await fetch(`https://seven7physbe.onrender.com/blogs`, {
                     method: "GET",
                     credentials: "include",
                 });
                 const blogData = await blogRes.json();
                 setBlogs(Array.isArray(blogData) ? blogData : []);
     
-                const favRes = await fetch(`${API_BASE_URL}/my-favorite-blogs`, {
+                const favRes = await fetch(`https://seven7physbe.onrender.com/my-favorite-blogs`, {
                     method: "GET",
                     credentials: "include",
                 });
@@ -138,7 +138,7 @@ function BlogList(){
 
     const fetchBlogDetails = async (id) => {
         try {
-            const res = await fetch(`${API_BASE_URL}/blogs/${id}`);
+            const res = await fetch(`https://seven7physbe.onrender.com/blogs/${id}`);
             if (!res.ok) throw new Error("Blog not found");
             const data = await res.json();
             setSelectedBlog(data);
@@ -149,7 +149,7 @@ function BlogList(){
     };
     const fetchComments = async (blogId) => {
     try{
-        const res = await fetch(`${API_BASE_URL}/blogs/${blogId}/comments`);
+        const res = await fetch(`https://seven7physbe.onrender.com/blogs/${blogId}/comments`);
         if (!res.ok) throw new Error("Failed to fetch comments");
         const data = await res.json();
         setComments(data);
@@ -159,7 +159,7 @@ function BlogList(){
 }
 const handleFavorite = async (blogId) => {
     try {
-        const res = await fetch(`${API_BASE_URL}/fav-blog`, {
+        const res = await fetch(`https://seven7physbe.onrender.com/fav-blog`, {
             method: "POST",
             credentials: "include",
             headers: {
@@ -183,7 +183,7 @@ const handleFavorite = async (blogId) => {
 };
     const handleRemoveFavorite = async (blogId) => {
         try {
-            const res = await fetch(`${API_BASE_URL}/remove-fav-blog/${blogId}`, {
+            const res = await fetch(`https://seven7physbe.onrender.com/remove-fav-blog/${blogId}`, {
                 method: "DELETE",
                 credentials: "include",
             });
@@ -207,7 +207,7 @@ const handleFavorite = async (blogId) => {
         if (!newComment.trim()) return;
 
         try {
-            const res = await fetch(`${API_BASE_URL}0/blogs/${selectedBlog.id}/comments`, {
+            const res = await fetch(`https://seven7physbe.onrender.com0/blogs/${selectedBlog.id}/comments`, {
                 method: "POST",
                 credentials: "include",
                 headers: {
@@ -371,7 +371,7 @@ function SubmitWorkout({ setWorkoutList , closePopup}) {
         };
 
         try {
-            const res = await fetch(`${API_BASE_URL}/create-workout`, {
+            const res = await fetch(`https://seven7physbe.onrender.com/create-workout`, {
                 method: "POST",
                 credentials: "include",
                 headers: { "Content-Type": "application/json" },
@@ -509,7 +509,7 @@ function WorkoutArchive() {
 
     // Fetch all users who have archived workouts
     useEffect(() => {
-        fetch(`${API_BASE_URL}/archive`, {
+        fetch(`https://seven7physbe.onrender.com/archive`, {
             method: "GET",
             credentials: "include",
         })
@@ -521,7 +521,7 @@ function WorkoutArchive() {
     // Fetch selected user's workouts
     const fetchUserArchives = async (userId) => {
         try {
-            const res = await fetch(`${API_BASE_URL}/archive/${userId}`, {
+            const res = await fetch(`https://seven7physbe.onrender.com/archive/${userId}`, {
                 method: "GET",
                 credentials: "include",
             });

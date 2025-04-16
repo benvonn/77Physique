@@ -1,5 +1,5 @@
 ###
-# curl '`${API_BASE_URL}/submitBlog' \
+# curl '`https://seven7physbe.onrender.com/submitBlog' \
 #   -H 'Accept: */*' \
 #   -H 'Accept-Language: en-US,en;q=0.9' \
 #   -H 'Connection: keep-alive' \
@@ -26,18 +26,18 @@ credentials: include
 
 
 ###
-POST `${API_BASE_URL}/signup
+POST `https://seven7physbe.onrender.com/signup
 Content-Type: application/json
 
 {"username": "test", "email": "123@gmail.com", "password": "1"}
 
 ###
-POST `${API_BASE_URL}/login
+POST `https://seven7physbe.onrender.com/login
 Content-Type: application/json
 
 
 {"username": "test",  "password": "1"}
 
 ###
-GET `${API_BASE_URL}/user/<username>
+GET `https://seven7physbe.onrender.com/user/<username>
 

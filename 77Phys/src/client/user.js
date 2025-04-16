@@ -135,7 +135,7 @@ function Login({ closePopup, userData ,setUserData }) {
         setError("");
 
         try{
-            const res = await fetch(`${API_BASE_URL}/login`,{
+            const res = await fetch(`https://seven7physbe.onrender.com/login`,{
                 method: "POST",
                 credentials: "include",
                 headers: { 
@@ -158,7 +158,7 @@ function Login({ closePopup, userData ,setUserData }) {
 
             console.log("login successful", data);
 
-            const userRes = await fetch(`${API_BASE_URL}/user/${formData.username}`, {
+            const userRes = await fetch(`https://seven7physbe.onrender.com/user/${formData.username}`, {
                 method: "GET",
                 credentials: "include",
                 headers: {

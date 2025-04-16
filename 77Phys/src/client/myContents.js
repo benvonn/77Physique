@@ -14,14 +14,14 @@ function MyBlogs() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const blogsRes = await fetch(`${API_BASE_URL}/my-blogs`, {
+                const blogsRes = await fetch(`https://seven7physbe.onrender.com/my-blogs`, {
                     method: "GET",
                     credentials: "include"
                 });
                 const blogsData = await blogsRes.json();
                 setBlogs(Array.isArray(blogsData) ? blogsData : []);
 
-                const favRes = await fetch(`${API_BASE_URL}/my-favorite-blogs`, {
+                const favRes = await fetch(`https://seven7physbe.onrender.com/my-favorite-blogs`, {
                     method: "GET",
                     credentials: "include"
                 });
@@ -41,7 +41,7 @@ function MyBlogs() {
 
     const fetchComments = async (blogId) => {
         try {
-            const res = await fetch(`${API_BASE_URL}/blogs/${blogId}/comments`);
+            const res = await fetch(`https://seven7physbe.onrender.com/blogs/${blogId}/comments`);
             if (!res.ok) throw new Error("Failed to fetch comments");
             const data = await res.json();
             setComments(data);
@@ -56,7 +56,7 @@ function MyBlogs() {
     };
     const handleRemoveFavorite = async (blogId) => {
         try {
-            const res = await fetch(`${API_BASE_URL}/remove-fav-blog/${blogId}`, {
+            const res = await fetch(`https://seven7physbe.onrender.com/remove-fav-blog/${blogId}`, {
                 method: "DELETE",
                 credentials: "include",
             });
@@ -81,7 +81,7 @@ function MyBlogs() {
         if (!newComment.trim()) return;
 
         try {
-            const res = await fetch(`${API_BASE_URL}/blogs/${selectedBlog.id}/comments`, {
+            const res = await fetch(`https://seven7physbe.onrender.com/blogs/${selectedBlog.id}/comments`, {
                 method: "POST",
                 credentials: "include",
                 headers: {
@@ -207,7 +207,7 @@ function MyWorkouts() {
     const [selectedWorkout, setSelectedWorkout] = useState(null);
 
     useEffect(() => {
-        fetch("`${API_BASE_URL}/my-workouts", {
+        fetch("`https://seven7physbe.onrender.com/my-workouts", {
             method: "GET",
             credentials: "include",
         })
@@ -224,7 +224,7 @@ function MyWorkouts() {
    
     const fetchWorkoutDetails = async (id) => {
         try {
-            const res = await fetch(`${API_BASE_URL}/my-workouts/${id}`, {
+            const res = await fetch(`https://seven7physbe.onrender.com/my-workouts/${id}`, {
                 method: "GET",
                 credentials: "include",
             });
@@ -240,7 +240,7 @@ function MyWorkouts() {
         if (!window.confirm("Are you sure you want to delete this workout?")) return;
 
         try {
-            const res = await fetch(`${API_BASE_URL}/my-workouts/${id}`, {
+            const res = await fetch(`https://seven7physbe.onrender.com/my-workouts/${id}`, {
                 method: "DELETE",
                 credentials: "include",
             });
