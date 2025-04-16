@@ -207,7 +207,7 @@ function MyWorkouts() {
     const [selectedWorkout, setSelectedWorkout] = useState(null);
 
     useEffect(() => {
-        fetch("`https://seven7physbe.onrender.com/my-workouts", {
+        fetch("https://seven7physbe.onrender.com/my-workouts", {
             method: "GET",
             credentials: "include",
         })

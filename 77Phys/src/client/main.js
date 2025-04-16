@@ -207,7 +207,7 @@ const handleFavorite = async (blogId) => {
         if (!newComment.trim()) return;
 
         try {
-            const res = await fetch(`https://seven7physbe.onrender.com0/blogs/${selectedBlog.id}/comments`, {
+            const res = await fetch(`https://seven7physbe.onrender.com/blogs/${selectedBlog.id}/comments`, {
                 method: "POST",
                 credentials: "include",
                 headers: {
