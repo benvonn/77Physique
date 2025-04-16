@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import validatePassword from "./validatePassword";
+
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL
 function Signup({ closePopup }){
         const [message, setMessage] = useState("");
         const [messageType, setMessageType] = useState("");
@@ -30,7 +32,7 @@ function Signup({ closePopup }){
             }
 
             try{
-                const res =  await fetch("https://localhost:8000/signup", {
+                const res =  await fetch(`${API_BASE_URL}/signup`, {
                     method: "POST",
                     credentials: "include",
                     headers: {
@@ -133,7 +135,7 @@ function Login({ closePopup, userData ,setUserData }) {
         setError("");
 
         try{
-            const res = await fetch("https://localhost:8000/login",{
+            const res = await fetch(`${API_BASE_URL}/login`,{
                 method: "POST",
                 credentials: "include",
                 headers: { 
@@ -156,7 +158,7 @@ function Login({ closePopup, userData ,setUserData }) {
 
             console.log("login successful", data);
 
-            const userRes = await fetch(`https://localhost:8000/user/${formData.username}`, {
+            const userRes = await fetch(`${API_BASE_URL}/user/${formData.username}`, {
                 method: "GET",
                 credentials: "include",
                 headers: {

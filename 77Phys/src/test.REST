@@ -1,5 +1,5 @@
 ###
-# curl 'https://localhost:8000/submitBlog' \
+# curl '`${API_BASE_URL}/submitBlog' \
 #   -H 'Accept: */*' \
 #   -H 'Accept-Language: en-US,en;q=0.9' \
 #   -H 'Connection: keep-alive' \
@@ -26,18 +26,18 @@ credentials: include
 
 
 ###
-POST https://localhost:8000/signup
+POST `${API_BASE_URL}/signup
 Content-Type: application/json
 
 {"username": "test", "email": "123@gmail.com", "password": "1"}
 
 ###
-POST https://localhost:8000/login
+POST `${API_BASE_URL}/login
 Content-Type: application/json
 
 
 {"username": "test",  "password": "1"}
 
 ###
-GET https://localhost:8000/user/<username>
+GET `${API_BASE_URL}/user/<username>
 

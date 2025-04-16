@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL
 function MyBlogs() {
     const [blogs, setBlogs] = useState([]);
     const [selectedBlog, setSelectedBlog] = useState(null);
@@ -13,14 +14,14 @@ function MyBlogs() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const blogsRes = await fetch("https://localhost:8000/my-blogs", {
+                const blogsRes = await fetch(`${API_BASE_URL}/my-blogs`, {
                     method: "GET",
                     credentials: "include"
                 });
                 const blogsData = await blogsRes.json();
                 setBlogs(Array.isArray(blogsData) ? blogsData : []);
 
-                const favRes = await fetch("https://localhost:8000/my-favorite-blogs", {
+                const favRes = await fetch(`${API_BASE_URL}/my-favorite-blogs`, {
                     method: "GET",
                     credentials: "include"
                 });
@@ -40,7 +41,7 @@ function MyBlogs() {
 
     const fetchComments = async (blogId) => {
         try {
-            const res = await fetch(`https://localhost:8000/blogs/${blogId}/comments`);
+            const res = await fetch(`${API_BASE_URL}/blogs/${blogId}/comments`);
             if (!res.ok) throw new Error("Failed to fetch comments");
             const data = await res.json();
             setComments(data);
@@ -55,7 +56,7 @@ function MyBlogs() {
     };
     const handleRemoveFavorite = async (blogId) => {
         try {
-            const res = await fetch(`https://localhost:8000/remove-fav-blog/${blogId}`, {
+            const res = await fetch(`${API_BASE_URL}/remove-fav-blog/${blogId}`, {
                 method: "DELETE",
                 credentials: "include",
             });
@@ -80,7 +81,7 @@ function MyBlogs() {
         if (!newComment.trim()) return;
 
         try {
-            const res = await fetch(`https://localhost:8000/blogs/${selectedBlog.id}/comments`, {
+            const res = await fetch(`${API_BASE_URL}/blogs/${selectedBlog.id}/comments`, {
                 method: "POST",
                 credentials: "include",
                 headers: {
@@ -206,7 +207,7 @@ function MyWorkouts() {
     const [selectedWorkout, setSelectedWorkout] = useState(null);
 
     useEffect(() => {
-        fetch("https://localhost:8000/my-workouts", {
+        fetch("`${API_BASE_URL}/my-workouts", {
             method: "GET",
             credentials: "include",
         })
@@ -223,7 +224,7 @@ function MyWorkouts() {
    
     const fetchWorkoutDetails = async (id) => {
         try {
-            const res = await fetch(`https://localhost:8000/my-workouts/${id}`, {
+            const res = await fetch(`${API_BASE_URL}/my-workouts/${id}`, {
                 method: "GET",
                 credentials: "include",
             });
@@ -239,7 +240,7 @@ function MyWorkouts() {
         if (!window.confirm("Are you sure you want to delete this workout?")) return;
 
         try {
-            const res = await fetch(`https://localhost:8000/my-workouts/${id}`, {
+            const res = await fetch(`${API_BASE_URL}/my-workouts/${id}`, {
                 method: "DELETE",
                 credentials: "include",
             });

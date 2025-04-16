@@ -3,6 +3,7 @@ import { Login, Signup } from "./user.js";
 import { Blog, SubmitWorkout, BlogList, WorkoutArchive } from "./main.js";
 import { MyBlogs, MyWorkouts } from "./myContents.js";
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL
 function Navigation() {
     const [activePopup, setActivePopup] = useState(null);
     const [viewMode, setViewMode] = useState("blog");
@@ -13,7 +14,7 @@ function Navigation() {
 
     const fetchWorkouts = async () => {
         try {
-            const res = await fetch("https://localhost:8000/workouts", {
+            const res = await fetch(`${API_BASE_URL}/workouts`, {
                 credentials: "include",
             });
             if (!res.ok) throw new Error("Failed to fetch workouts");
@@ -59,7 +60,7 @@ function Navigation() {
 
     const handleLogout = async () => {
         try {
-            await fetch("https://localhost:8000/logout", {
+            await fetch(`${API_BASE_URL}/logout`, {
                 method: "POST",
                 credentials: "include",
             });
