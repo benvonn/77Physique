@@ -32,7 +32,7 @@ function Signup({ closePopup }){
             }
 
             try{
-                const res =  await fetch(`${API_BASE_URL}/signup`, {
+                const res =  await fetch(`https://seven7physbe.onrender.com/signup`, {
                     method: "POST",
                     credentials: "include",
                     headers: {
