@@ -592,6 +592,9 @@ def grab_users_archive(id):
 if __name__ == "__main__":
     with app.app_context():
         auto_delete_old_workouts() 
-    app.run(debug=True, host="0.0.0.0", port=port, ssl_context=("cert.pem", "key.pem"))
+    if os.environ.get("FLASK_ENV") == "development":
+        app.run(debug=True, host="0.0.0.0", port=port, ssl_context=("cert.pem", "key.pem"))
+    else:
+        app.run(debug=True, host="0.0.0.0", port=port)
 
 
